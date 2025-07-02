@@ -1,6 +1,10 @@
-import InsertBuilder from "./queryBuilder/insert"
+import SelecttBuilder from "./queryBuilder/select"
+import eOperator from "./types/eOperator";
 
-const insert = new InsertBuilder()
-    .into('table1')
-    .values({'id': 1})
+
+const select = new SelecttBuilder()
+    .from('table1')
+    .select(['id', 'nb'])
+    .where(4, 10, eOperator.Egual)
     .build();
+
