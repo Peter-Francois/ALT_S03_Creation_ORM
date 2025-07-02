@@ -15,7 +15,9 @@ export default abstract class BaseQueryBuilder implements iQueryBuilder{
     };
         
 
-    protected formatValue(){};
+    protected formateValue(value: any): string{
+        return `'${value}'`
+    }
 
     public build(): string{ return ''};
 
