@@ -1,3 +1,6 @@
-import sayHelloWorld  from "./index";
+import InsertBuilder from "./queryBuilder/insert"
 
-sayHelloWorld('Peter');
+const insert = new InsertBuilder()
+    .into('table1')
+    .values({'id': 1})
+    .build();
