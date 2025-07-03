@@ -3,10 +3,9 @@ import { MySQLConnection } from "./connection/mysql-connection";
 import InsertBuilder from "./queryBuilder/insert";
 import SelecttBuilder from "./queryBuilder/select"
 import eOperator from "./types/eOperator";
-import * as dotenv from 'dotenv';
+import BaseModele from "./model/BaseModel";
+import { create } from "domain";
 
-// Load environment variables from .env file
-dotenv.config();
 
 /*const insert = new InsertBuilder()
     .into('table1')
@@ -15,7 +14,7 @@ dotenv.config();
 
 // process.env.PORT
 
-const connectionConfig: IConnectionConfig= {
+/*const connectionConfig: IConnectionConfig= {
     host: process.env.HOST || 'localhost',
     port: parseInt(process.env.PORT ?? '3306', 10),
     user: process.env.USER|| 'root',
@@ -25,3 +24,8 @@ const connectionConfig: IConnectionConfig= {
 
 const connection: MySQLConnection = new MySQLConnection(connectionConfig)
 connection.connect()
+*/
+
+BaseModele.create(
+    {test: 350}
+)
