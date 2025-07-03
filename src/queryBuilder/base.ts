@@ -14,12 +14,12 @@ export default abstract class BaseQueryBuilder implements iQueryBuilder{
         return this
     };
         
-
+    
     protected formateValue(value: any): string{
         return `'${value}'`
     }
 
-    public build(): string{ return ''};
+    abstract build(): string;
 
     
 

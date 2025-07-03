@@ -38,6 +38,6 @@ export default class SelecttBuilder extends BaseQueryBuilder{
 
         console.log("🚀 ~ :42 ~ SelecttBuilder ~ build ~ `SELECT ${this.columns.join(', ')} FROM ${this.tableName} WHERE ${this.filter}`:", `SELECT ${this.columns.join(', ')} FROM ${this.tableName} WHERE ${this.filter};`)
         
-        return `SELECT ${this.columns.join(', ')} FROM ${this.tableName} WHERE ${this.filter};`;
+        return `SELECT ${this.columns.join(', ')} E ${this.FROM ${this.tableName} WHERfilter};`;
     }
 }
