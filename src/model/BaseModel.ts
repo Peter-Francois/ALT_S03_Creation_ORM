@@ -1,11 +1,7 @@
 import { MySQLConnection } from '../connection/mysql-connection';
 import InsertBuilder from '../queryBuilder/insert';
-import { IConnectionConfig } from '../types/IDatabaseConnection';
+import { IConnectionConfig, IDatabaseConnection } from '../types/IDatabaseConnection';
 import Imodel from '../types/Imodel'
-import * as dotenv from 'dotenv';
-
-// Load environment variables from .env file
-dotenv.config();
 
 
 export default abstract class BaseModele implements Imodel{
@@ -14,16 +10,11 @@ export default abstract class BaseModele implements Imodel{
     static connection: MySQLConnection;
 
     static getConnection(){
-        const connectionConfig: IConnectionConfig= {
-            host: process.env.HOST || 'localhost',
-            port: parseInt(process.env.PORT ?? '3306', 10),
-            user: process.env.USER|| 'root',
-            password: process.env.PASSWORD|| 'ABC',
-            database: process.env.DATABASE|| 'DB',
-        }
-        this.connection= new MySQLConnection(connectionConfig)
-        this.connection.connect()
         return this
+    }
+
+    static setConnection(connection: IDatabaseConnection, connectionConfig: IConnectionConfig): void{
+        connection = new MySQLConnection(connectionConfig);
     }
 
     static execute<T>(query: string, params: any[] =[]): Promise<T> {
