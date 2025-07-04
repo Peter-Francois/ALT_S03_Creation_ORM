@@ -9,7 +9,7 @@ dotenv.config();
 
 
 export default abstract class BaseModele implements Imodel{
-    static tableName: string = 'table1';
+    static tableName: string = '';
     static columns: Record<string, any> = {};
     static connection: MySQLConnection;
 

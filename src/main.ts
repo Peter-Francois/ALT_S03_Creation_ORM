@@ -5,6 +5,7 @@ import SelecttBuilder from "./queryBuilder/select"
 import eOperator from "./types/eOperator";
 import BaseModele from "./model/BaseModel";
 import { create } from "domain";
+import User from "./model/models/user";
 
 
 /*const insert = new InsertBuilder()
@@ -26,6 +27,9 @@ const connection: MySQLConnection = new MySQLConnection(connectionConfig)
 connection.connect()
 */
 
-BaseModele.create(
-    {test: 350}
+User.post('user',
+    {   username: '"Peter"',
+        email: '"fur@hotmail.fr"',
+        password: '"hola"'
+    }
 )
